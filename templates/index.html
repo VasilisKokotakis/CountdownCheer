@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Holiday Countdown</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🎄 Holiday Countdown 🎄</h1>
+    <div class="countdowns">
+        {% for holiday, time in countdowns.items() %}
+        <div class="card">
+            <h2>{{ holiday }}</h2>
+            <p>{{ time[0] }} days, {{ time[1] }} hours, {{ time[2] }} minutes</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
