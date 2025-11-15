@@ -1,4 +1,4 @@
-#  Christmas Countdown Web App
+# CountdownCheer Web App
 
 A small Python project to count down the days, hours, and minutes until Christmas **and any other holidays you add**.
 This project includes a **web UI** built with Flask and festive animations.
@@ -10,14 +10,15 @@ This project includes a **web UI** built with Flask and festive animations.
 * Real-time countdown for multiple holidays: Christmas, New Year, Easter (approximate), and user-added holidays.
 * Dark-themed, festive web interface with **glowing cards** and **hover sparkles**.
 * **Falling snow animation** for a winter holiday feel.
-* Add your own custom holidays via a simple form appear instantly in the countdown.
-* **Mobile-friendly responsive design** cards and forms adjust to any screen size.
+* Add your own custom holidays via a simple form - appear instantly in the countdown.
+* **Mobile-friendly responsive design** - cards and forms adjust to any screen size.
 
 ---
 
 ## Screenshots
 
 **Web Version**
+<img width="1500" height="752" alt="image" src="https://github.com/user-attachments/assets/25aa05bc-2d6c-4223-b45f-87e2bce69f28" />
 
 ---
 
@@ -26,8 +27,8 @@ This project includes a **web UI** built with Flask and festive animations.
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/VasilisKokotakis/Christmas_is_coming.git
-cd christmas_countdown
+git clone https://github.com/VasilisKokotakis/CountdownCheer.git
+cd CountdownCheer
 ```
 
 2. **Install dependencies**
@@ -50,7 +51,7 @@ python main.py
 ## Project Structure
 
 ```
-christmas_countdown/
+CountdownCheer/
 │
 ├── main.py          # Flask app
 ├── templates/
@@ -91,5 +92,4 @@ This project is perfect for adding **festive features** or experimenting with **
 ## License
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
-
 
