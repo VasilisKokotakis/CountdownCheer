@@ -32,7 +32,8 @@
 
     <!-- Falling Snow -->
     <script>
-        for (let i = 0; i < 50; i++) {
+        const snowCount = window.innerWidth < 480 ? 30 : 50;
+        for (let i = 0; i < snowCount; i++) {
             const snow = document.createElement("div");
             snow.className = "snowflake";
             snow.textContent = "❄";

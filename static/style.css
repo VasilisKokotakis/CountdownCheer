@@ -105,3 +105,59 @@ h1 {
         opacity: 0;
     }
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .countdowns {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .form-box {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .countdowns .card h2 {
+        font-size: 1.5rem;
+    }
+
+    .countdowns .card .time {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-box input, .form-box button {
+        width: 95%;
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .countdowns .card h2 {
+        font-size: 1.3rem;
+    }
+
+    .countdowns .card .time {
+        font-size: 1rem;
+    }
+}
