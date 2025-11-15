@@ -16,10 +16,12 @@ def get_countdown(month, day):
     if target < now:
         target = datetime.datetime(year + 1, month, day)
     delta = target - now
-    days = delta.days
-    hours, remainder = divmod(delta.seconds, 3600)
-    minutes, _ = divmod(remainder, 60)
-    return days, hours, minutes
+    return {
+        "target": target.strftime("%Y-%m-%dT00:00:00"),  # Passed to JS
+        "days": delta.days,
+        "hours": delta.seconds // 3600,
+        "minutes": (delta.seconds % 3600) // 60,
+    }
 
 @app.route("/")
 def index():
