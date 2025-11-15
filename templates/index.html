@@ -3,75 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Holiday Countdown</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
 
-<div class="snow-container"></div>
+    <h1>🎄 Holiday Countdown 🎅</h1>
 
-<h1 class="title">🎄 Holiday Countdown 🎅</h1>
+    <h2>Add Your Own Holiday</h2>
 
-<div class="holiday-container">
-    {% for name, data in countdowns.items() %}
-    <div class="holiday-card" data-target="{{ data.target }}">
-        <h2>{{ name }}</h2>
-        <p class="countdown">Loading…</p>
+    <form method="POST" class="form-box">
+        <input type="text" name="name" placeholder="Holiday Name" required>
+        <input type="number" name="month" min="1" max="12" placeholder="Month" required>
+        <input type="number" name="day" min="1" max="31" placeholder="Day" required>
+        <button type="submit">Add Holiday</button>
+    </form>
+
+    <hr>
+
+    <div class="countdowns">
+        {% for name, (month, day) in holidays.items() %}
+        <div class="card" data-month="{{ month }}" data-day="{{ day }}">
+            <h2>{{ name }}</h2>
+            <p class="time">Loading...</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
 
-<script>
-function startCountdown(card, targetDate) {
-    const countdownElement = card.querySelector(".countdown");
-    const target = new Date(targetDate);
-
-    function update() {
-        const now = new Date();
-        const diff = target - now;
-
-        if (diff <= 0) {
-            countdownElement.innerHTML = "🎉 It's here!";
-            return;
+    <!-- Falling Snow -->
+    <script>
+        for (let i = 0; i < 50; i++) {
+            const snow = document.createElement("div");
+            snow.className = "snowflake";
+            snow.textContent = "❄";
+            snow.style.left = Math.random() * 100 + "vw";
+            snow.style.animationDuration = (4 + Math.random() * 6) + "s";
+            snow.style.opacity = Math.random();
+            document.body.appendChild(snow);
         }
+    </script>
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        countdownElement.innerHTML = `
-            <span>${days}d</span> :
-            <span>${hours}h</span> :
-            <span>${minutes}m</span> :
-            <span>${seconds}s</span>
-        `;
-    }
-
-    update();
-    setInterval(update, 1000);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".holiday-card");
-    cards.forEach(card => {
-        const target = card.getAttribute("data-target");
-        startCountdown(card, target);
-    });
-
-    // Generate snowflakes ❄️
-    const snowContainer = document.querySelector('.snow-container');
-    for (let i = 0; i < 80; i++) {
-        let snow = document.createElement('div');
-        snow.classList.add('snowflake');
-        snow.style.left = Math.random() * 100 + "vw";
-        snow.style.animationDuration = (Math.random() * 3 + 3) + "s";
-        snow.style.opacity = Math.random();
-        snow.style.fontSize = (Math.random() * 10 + 10) + "px";
-        snow.innerHTML = "❄";
-        snowContainer.appendChild(snow);
-    }
-});
-</script>
+    <script src="/static/countdown.js"></script>
 
 </body>
 </html>

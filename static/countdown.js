@@ -1,13 +1,16 @@
 function updateCountdowns() {
-    document.querySelectorAll("[data-month]").forEach(card => {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
         const month = parseInt(card.dataset.month);
         const day = parseInt(card.dataset.day);
 
         const now = new Date();
-        let target = new Date(now.getFullYear(), month - 1, day, 0, 0, 0);
+        let year = now.getFullYear();
+        let target = new Date(year, month - 1, day);
 
         if (target < now) {
-            target = new Date(now.getFullYear() + 1, month - 1, day, 0, 0, 0);
+            target = new Date(year + 1, month - 1, day);
         }
 
         const diff = target - now;
